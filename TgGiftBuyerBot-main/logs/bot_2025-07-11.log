@@ -1,0 +1,408 @@
+2025-07-11 23:36:05 | INFO | main:main:38 - Starting bot...
+2025-07-11 23:36:05 | INFO | main:on_startup:25 - Initializing database...
+2025-07-11 23:36:05 | INFO | main:on_startup:27 - Database initialized successfully
+2025-07-11 23:36:05 | INFO | main:on_startup:30 - Starting gift parsing loop...
+2025-07-11 23:36:05 | ERROR | logger:emit:13 - Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<start_gift_parsing_loop() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\utils\gift_parser.py:72> exception=RuntimeError('aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86')>
+2025-07-11 23:36:05 | ERROR | main:<module>:56 - Bot stopped due to an error: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+Traceback (most recent call last):
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+
+ModuleNotFoundError: No module named 'winloop'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 54, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x000001B6885E7C40>
+    │       └ <function run at 0x000001B6FEDAA200>
+    └ <module 'asyncio' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001B684B30040>
+           │      └ <function Runner.run at 0x000001B6FEE5EDE0>
+           └ <asyncio.runners.Runner object at 0x000001B6885EB890>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │                        └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+           │    └ None
+           └ <asyncio.runners.Runner object at 0x000001B6885EB890>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           │      └ <method 'result' of '_asyncio.Task' objects>
+           └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+
+  File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 48, in main
+    await bot.delete_webhook(drop_pending_updates=True)
+          │   └ <function Bot.delete_webhook at 0x000001B68753CC20>
+          └ <aiogram.client.bot.Bot object at 0x000001B6884FB2D0>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 1206, in delete_webhook
+    return await self(call, request_timeout=request_timeout)
+                 │    │                     └ None
+                 │    └ DeleteWebhook(drop_pending_updates=True)
+                 └ <aiogram.client.bot.Bot object at 0x000001B6884FB2D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 453, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+                 │    │       │     │               └ None
+                 │    │       │     └ DeleteWebhook(drop_pending_updates=True)
+                 │    │       └ <aiogram.client.bot.Bot object at 0x000001B6884FB2D0>
+                 │    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001B6FCED03D0>
+                 └ <aiogram.client.bot.Bot object at 0x000001B6884FB2D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+           │    │                   │          │    └ DeleteWebhook(drop_pending_updates=True)
+           │    │                   │          └ <aiogram.client.bot.Bot object at 0x000001B6884FB2D0>
+           │    │                   └ functools.partial(<bound method AiohttpSession.make_request of <aiogram.client.session.aiohttp.AiohttpSession object at 0x000...
+           │    └ ~TelegramType
+           └ <function cast at 0x000001B6FEE26C00>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 171, in make_request
+    session = await self.create_session()
+                    │    └ <function AiohttpSession.create_session at 0x000001B687522FC0>
+                    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001B6FCED03D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 135, in create_session
+    connector=self._connector_type(**self._connector_init),
+              │    │                 │    └ {'ssl': <ssl.SSLContext object at 0x000001B68851CDD0>, 'limit': 100, 'ttl_dns_cache': 3600}
+              │    │                 └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001B6FCED03D0>
+              │    └ <class 'aiohttp.connector.TCPConnector'>
+              └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001B6FCED03D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+               │                    │    └ <ProactorEventLoop running=False closed=True debug=False>
+               │                    └ <aiohttp.connector.TCPConnector object at 0x000001B6885EBD90>
+               └ <class 'aiohttp.resolver.AsyncResolver'>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\resolver.py", line 96, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+    │                │      │            │       └ {}
+    │                │      │            └ ()
+    │                │      └ <class 'aiodns.DNSResolver'>
+    │                └ <module 'aiodns' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiodns\\__ini...
+    └ <aiohttp.resolver.AsyncResolver object at 0x000001B687517450>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-07-11 23:36:22 | INFO | main:main:38 - Starting bot...
+2025-07-11 23:36:22 | INFO | main:on_startup:25 - Initializing database...
+2025-07-11 23:36:22 | INFO | main:on_startup:27 - Database initialized successfully
+2025-07-11 23:36:22 | INFO | main:on_startup:30 - Starting gift parsing loop...
+2025-07-11 23:36:22 | ERROR | logger:emit:13 - Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<start_gift_parsing_loop() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\utils\gift_parser.py:72> exception=RuntimeError('aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86')>
+2025-07-11 23:36:22 | ERROR | main:<module>:56 - Bot stopped due to an error: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+Traceback (most recent call last):
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+
+ModuleNotFoundError: No module named 'winloop'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 54, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x000001F19B097BA0>
+    │       └ <function run at 0x000001F19187A200>
+    └ <module 'asyncio' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001F1975AC2B0>
+           │      └ <function Runner.run at 0x000001F19192EDE0>
+           └ <asyncio.runners.Runner object at 0x000001F19B0AB110>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │                        └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+           │    └ None
+           └ <asyncio.runners.Runner object at 0x000001F19B0AB110>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           │      └ <method 'result' of '_asyncio.Task' objects>
+           └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+
+  File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 48, in main
+    await bot.delete_webhook(drop_pending_updates=True)
+          │   └ <function Bot.delete_webhook at 0x000001F19A00CC20>
+          └ <aiogram.client.bot.Bot object at 0x000001F18F9504D0>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 1206, in delete_webhook
+    return await self(call, request_timeout=request_timeout)
+                 │    │                     └ None
+                 │    └ DeleteWebhook(drop_pending_updates=True)
+                 └ <aiogram.client.bot.Bot object at 0x000001F18F9504D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 453, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+                 │    │       │     │               └ None
+                 │    │       │     └ DeleteWebhook(drop_pending_updates=True)
+                 │    │       └ <aiogram.client.bot.Bot object at 0x000001F18F9504D0>
+                 │    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001F1919DF910>
+                 └ <aiogram.client.bot.Bot object at 0x000001F18F9504D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+           │    │                   │          │    └ DeleteWebhook(drop_pending_updates=True)
+           │    │                   │          └ <aiogram.client.bot.Bot object at 0x000001F18F9504D0>
+           │    │                   └ functools.partial(<bound method AiohttpSession.make_request of <aiogram.client.session.aiohttp.AiohttpSession object at 0x000...
+           │    └ ~TelegramType
+           └ <function cast at 0x000001F1918F6C00>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 171, in make_request
+    session = await self.create_session()
+                    │    └ <function AiohttpSession.create_session at 0x000001F199FF2FC0>
+                    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001F1919DF910>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 135, in create_session
+    connector=self._connector_type(**self._connector_init),
+              │    │                 │    └ {'ssl': <ssl.SSLContext object at 0x000001F19AFFCC20>, 'limit': 100, 'ttl_dns_cache': 3600}
+              │    │                 └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001F1919DF910>
+              │    └ <class 'aiohttp.connector.TCPConnector'>
+              └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001F1919DF910>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+               │                    │    └ <ProactorEventLoop running=False closed=True debug=False>
+               │                    └ <aiohttp.connector.TCPConnector object at 0x000001F19B0B1B50>
+               └ <class 'aiohttp.resolver.AsyncResolver'>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\resolver.py", line 96, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+    │                │      │            │       └ {}
+    │                │      │            └ ()
+    │                │      └ <class 'aiodns.DNSResolver'>
+    │                └ <module 'aiodns' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiodns\\__ini...
+    └ <aiohttp.resolver.AsyncResolver object at 0x000001F19B0B0A10>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-07-11 23:37:14 | INFO | main:main:38 - Starting bot...
+2025-07-11 23:37:14 | INFO | main:on_startup:25 - Initializing database...
+2025-07-11 23:37:14 | INFO | main:on_startup:27 - Database initialized successfully
+2025-07-11 23:37:14 | INFO | main:on_startup:30 - Starting gift parsing loop...
+2025-07-11 23:37:14 | ERROR | logger:emit:13 - Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<start_gift_parsing_loop() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\utils\gift_parser.py:72> exception=RuntimeError('aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86')>
+2025-07-11 23:37:14 | ERROR | main:<module>:56 - Bot stopped due to an error: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+Traceback (most recent call last):
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+
+ModuleNotFoundError: No module named 'winloop'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 54, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x000001D0856C7B00>
+    │       └ <function run at 0x000001D0FBECA160>
+    └ <module 'asyncio' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001D0FFC401E0>
+           │      └ <function Runner.run at 0x000001D0FBF6ED40>
+           └ <asyncio.runners.Runner object at 0x000001D0854CB6D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │                        └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+           │    └ None
+           └ <asyncio.runners.Runner object at 0x000001D0854CB6D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           │      └ <method 'result' of '_asyncio.Task' objects>
+           └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+
+  File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 48, in main
+    await bot.delete_webhook(drop_pending_updates=True)
+          │   └ <function Bot.delete_webhook at 0x000001D08463CB80>
+          └ <aiogram.client.bot.Bot object at 0x000001D0FC01FDD0>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 1206, in delete_webhook
+    return await self(call, request_timeout=request_timeout)
+                 │    │                     └ None
+                 │    └ DeleteWebhook(drop_pending_updates=True)
+                 └ <aiogram.client.bot.Bot object at 0x000001D0FC01FDD0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 453, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+                 │    │       │     │               └ None
+                 │    │       │     └ DeleteWebhook(drop_pending_updates=True)
+                 │    │       └ <aiogram.client.bot.Bot object at 0x000001D0FC01FDD0>
+                 │    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001D0FC01FD50>
+                 └ <aiogram.client.bot.Bot object at 0x000001D0FC01FDD0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+           │    │                   │          │    └ DeleteWebhook(drop_pending_updates=True)
+           │    │                   │          └ <aiogram.client.bot.Bot object at 0x000001D0FC01FDD0>
+           │    │                   └ functools.partial(<bound method AiohttpSession.make_request of <aiogram.client.session.aiohttp.AiohttpSession object at 0x000...
+           │    └ ~TelegramType
+           └ <function cast at 0x000001D0FBF46B60>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 171, in make_request
+    session = await self.create_session()
+                    │    └ <function AiohttpSession.create_session at 0x000001D08461EF20>
+                    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001D0FC01FD50>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 135, in create_session
+    connector=self._connector_type(**self._connector_init),
+              │    │                 │    └ {'ssl': <ssl.SSLContext object at 0x000001D08562CCB0>, 'limit': 100, 'ttl_dns_cache': 3600}
+              │    │                 └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001D0FC01FD50>
+              │    └ <class 'aiohttp.connector.TCPConnector'>
+              └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x000001D0FC01FD50>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+               │                    │    └ <ProactorEventLoop running=False closed=True debug=False>
+               │                    └ <aiohttp.connector.TCPConnector object at 0x000001D084A5E350>
+               └ <class 'aiohttp.resolver.AsyncResolver'>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\resolver.py", line 96, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+    │                │      │            │       └ {}
+    │                │      │            └ ()
+    │                │      └ <class 'aiodns.DNSResolver'>
+    │                └ <module 'aiodns' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiodns\\__ini...
+    └ <aiohttp.resolver.AsyncResolver object at 0x000001D0856E2C90>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-07-11 23:39:39 | INFO | main:main:38 - Starting bot...
+2025-07-11 23:39:39 | INFO | main:on_startup:25 - Initializing database...
+2025-07-11 23:39:39 | INFO | main:on_startup:27 - Database initialized successfully
+2025-07-11 23:39:39 | INFO | main:on_startup:30 - Starting gift parsing loop...
+2025-07-11 23:39:39 | ERROR | logger:emit:13 - Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<start_gift_parsing_loop() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\utils\gift_parser.py:72> exception=RuntimeError('aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86')>
+2025-07-11 23:39:39 | ERROR | main:<module>:56 - Bot stopped due to an error: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+Traceback (most recent call last):
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+
+ModuleNotFoundError: No module named 'winloop'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 54, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x0000025CCC867BA0>
+    │       └ <function run at 0x0000025CC304A200>
+    └ <module 'asyncio' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x0000025CC8D802B0>
+           │      └ <function Runner.run at 0x0000025CC30FEDE0>
+           └ <asyncio.runners.Runner object at 0x0000025CCC87B250>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │                        └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+           │    └ None
+           └ <asyncio.runners.Runner object at 0x0000025CCC87B250>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           │      └ <method 'result' of '_asyncio.Task' objects>
+           └ <Task finished name='Task-1' coro=<main() done, defined at C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py:34> excep...
+
+  File "C:\Users\Acer_Server\Desktop\TgGiftBuyerBot-main\main.py", line 48, in main
+    await bot.delete_webhook(drop_pending_updates=True)
+          │   └ <function Bot.delete_webhook at 0x0000025CCB7DCC20>
+          └ <aiogram.client.bot.Bot object at 0x0000025CC11304D0>
+
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 1206, in delete_webhook
+    return await self(call, request_timeout=request_timeout)
+                 │    │                     └ None
+                 │    └ DeleteWebhook(drop_pending_updates=True)
+                 └ <aiogram.client.bot.Bot object at 0x0000025CC11304D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\bot.py", line 453, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+                 │    │       │     │               └ None
+                 │    │       │     └ DeleteWebhook(drop_pending_updates=True)
+                 │    │       └ <aiogram.client.bot.Bot object at 0x0000025CC11304D0>
+                 │    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x0000025CC31AF990>
+                 └ <aiogram.client.bot.Bot object at 0x0000025CC11304D0>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+           │    │                   │          │    └ DeleteWebhook(drop_pending_updates=True)
+           │    │                   │          └ <aiogram.client.bot.Bot object at 0x0000025CC11304D0>
+           │    │                   └ functools.partial(<bound method AiohttpSession.make_request of <aiogram.client.session.aiohttp.AiohttpSession object at 0x000...
+           │    └ ~TelegramType
+           └ <function cast at 0x0000025CC30C6C00>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 171, in make_request
+    session = await self.create_session()
+                    │    └ <function AiohttpSession.create_session at 0x0000025CCB7C2FC0>
+                    └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x0000025CC31AF990>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiogram\client\session\aiohttp.py", line 135, in create_session
+    connector=self._connector_type(**self._connector_init),
+              │    │                 │    └ {'ssl': <ssl.SSLContext object at 0x0000025CCC7CCC20>, 'limit': 100, 'ttl_dns_cache': 3600}
+              │    │                 └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x0000025CC31AF990>
+              │    └ <class 'aiohttp.connector.TCPConnector'>
+              └ <aiogram.client.session.aiohttp.AiohttpSession object at 0x0000025CC31AF990>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+               │                    │    └ <ProactorEventLoop running=False closed=True debug=False>
+               │                    └ <aiohttp.connector.TCPConnector object at 0x0000025CCC8810D0>
+               └ <class 'aiohttp.resolver.AsyncResolver'>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\resolver.py", line 96, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+    │                │      │            │       └ {}
+    │                │      │            └ ()
+    │                │      └ <class 'aiodns.DNSResolver'>
+    │                └ <module 'aiodns' from 'C:\\Users\\Acer_Server\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\aiodns\\__ini...
+    └ <aiohttp.resolver.AsyncResolver object at 0x0000025CCC882B90>
+  File "C:\Users\Acer_Server\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-07-11 23:41:15 | INFO | main:main:38 - Starting bot...
+2025-07-11 23:41:15 | INFO | main:on_startup:25 - Initializing database...
+2025-07-11 23:41:15 | INFO | main:on_startup:27 - Database initialized successfully
+2025-07-11 23:41:15 | INFO | main:on_startup:30 - Starting gift parsing loop...
+2025-07-11 23:41:16 | INFO | logger:emit:13 - Start polling
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170145012310081615
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170233102089322756
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170250947678437525
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5168103777563050263
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170144170496491616
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170314324215857265
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170564780938756245
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5168043875654172773
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170690322832818290
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 5170521118301225164
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:135 - Added new gift: 6028601630662853006
+2025-07-11 23:41:16 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:16 | INFO | logger:emit:13 - Run polling for bot @myownautogiftbuyerbot id=7969402340 - 'Auto Gift Buyer'
+2025-07-11 23:41:20 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:20 | INFO | logger:emit:13 - Update id=360396539 is handled. Duration 843 ms by bot id=7969402340
+2025-07-11 23:41:23 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:27 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:30 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:34 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:37 | INFO | logger:emit:13 - Update id=360396540 is handled. Duration 2452 ms by bot id=7969402340
+2025-07-11 23:41:37 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:41 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:44 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:48 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:52 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:41:56 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:00 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:03 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:07 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:08 | INFO | logger:emit:13 - Update id=360396541 is handled. Duration 281 ms by bot id=7969402340
+2025-07-11 23:42:10 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:11 | INFO | logger:emit:13 - Update id=360396542 is handled. Duration 422 ms by bot id=7969402340
+2025-07-11 23:42:14 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:16 | INFO | logger:emit:13 - Update id=360396543 is handled. Duration 390 ms by bot id=7969402340
+2025-07-11 23:42:18 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:21 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:25 | INFO | gift_parser:start_gift_parsing_loop:139 - Gift list successfully updated in the database.
+2025-07-11 23:42:27 | INFO | logger:emit:13 - Polling stopped
+2025-07-11 23:42:27 | INFO | logger:emit:13 - Polling stopped for bot @myownautogiftbuyerbot id=7969402340 - 'Auto Gift Buyer'
